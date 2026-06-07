@@ -1,4 +1,4 @@
-# Film Review Sentiment Classifier
+<img width="1920" height="1028" alt="image" src="https://github.com/user-attachments/assets/d8a036c1-952a-4bfd-9327-4b4070ca5fa0" /># Film Review Sentiment Classifier
 
 Binary sentiment classification of movie reviews using Naive Bayes and SVM, with a Streamlit web interface for live prediction.
 
@@ -82,6 +82,8 @@ streamlit run app.py
 ```
 
 Open `http://localhost:8501` in your browser, paste any movie review, and click **Classify** to see predictions from both models side by side.
+**Or**
+You can access it online without running it in your localhost by clicking this link: `https://film-review-sentiment-imdb.streamlit.app/`
 
 ---
 
