@@ -68,6 +68,12 @@ if st.button("Classify", type="primary"):
         pred_nb  = nb.predict(vec)[0]
         pred_svm = svm.predict(vec)[0]
 
+        prob_nb  = nb.predict_proba(vec)[0]
+        prob_svm = svm.predict_proba(vec)[0]
+
+        confidence_nb  = prob_nb[pred_nb] * 100
+        confidence_svm = prob_svm[pred_svm] * 100
+
         label = {1: "Positive", 0: "Negative"}
         color = {1: "green", 0: "red"}
 
@@ -80,6 +86,7 @@ if st.button("Classify", type="primary"):
                 f"<h2 style='color:{color[pred_nb]}'>{label[pred_nb]}</h2>",
                 unsafe_allow_html=True
             )
+            st.metric("Confidence", f"{confidence_nb:.2f}%")
 
         with col2:
             st.subheader("SVM")
@@ -87,6 +94,7 @@ if st.button("Classify", type="primary"):
                 f"<h2 style='color:{color[pred_svm]}'>{label[pred_svm]}</h2>",
                 unsafe_allow_html=True
             )
+            st.metric("Confidence", f"{confidence_svm:.2f}%")
 
         with st.expander("Preprocessed text"):
             st.text(cleaned if cleaned else "(empty after preprocessing)")
