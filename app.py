@@ -95,6 +95,10 @@ if st.button("Classify", type="primary"):
                 unsafe_allow_html=True
             )
             st.metric("Confidence", f"{confidence_svm:.2f}%")
+            st.write("Prediction:", pred_svm)
+            st.write("Probability:", prob_svm)
+            st.write("Classes:", svm.classes_)
+            st.write("Preprocessed:", cleaned)
 
         with st.expander("Preprocessed text"):
             st.text(cleaned if cleaned else "(empty after preprocessing)")
